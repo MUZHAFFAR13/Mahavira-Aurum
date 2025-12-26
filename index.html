@@ -1,72 +1,162 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mahavira Aurum - Valor Virtus Veritas Vita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahavira Aurum</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body { background:#111; color:#fff; min-height:100vh; }
-    header {
-      background: linear-gradient(90deg,#d4af37,#fff,#000);
-      padding:1rem;
-      text-align:center;
-      border-bottom:3px solid #d4af37;
-    }
-    header img { width:90px; }
-    nav a {
-      margin:0 10px;
-      color:#d4af37;
-      text-decoration:none;
-      font-weight:600;
-    }
-    main {
-      background:#fff;
-      color:#111;
-      margin:2rem;
-      padding:2rem;
-      border-radius:12px;
-    }
-    h2 { color:#d4af37; }
-    footer {
-      text-align:center;
-      color:#d4af37;
-      padding:1rem;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #000; color: #fff; overflow-x: hidden; }header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #2b2b2b, #000);
+  animation: fadeIn 1.5s ease;
+}
+
+header img {
+  width: 180px;
+  animation: zoomRotate 1.5s ease;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 3rem;
+  color: gold;
+  letter-spacing: 3px;
+}
+
+.slogan {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ccc;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  z-index: 100;
+}
+
+nav a {
+  color: gold;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover { color: white; }
+
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeUp 1s ease;
+}
+
+section h2 {
+  color: gold;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+}
+
+.card {
+  background: #111;
+  border: 1px solid gold;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.member {
+  background: #111;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.member:hover { transform: scale(1.05); }
+
+footer {
+  background: #000;
+  text-align: center;
+  padding: 30px;
+  color: #888;
+}
+
+@keyframes zoomRotate {
+  from { transform: scale(0) rotate(-180deg); opacity: 0; }
+  to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
-<body>
-
-<header>
-  <img src="assets/img/mahavira-aurum-logo.png" alt="Logo Mahavira Aurum">
-  <nav>
-    <a href="#member">Member</a>
-    <a href="#visi">Visi Misi</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-  <section id="member">
-    <h2>Our Member</h2>
-    <p>Mahavira Aurum</p>
-  </section>
-
-  <section id="visi">
-    <h2>Visi & Misi</h2>
-    <p>Valor · Virtus · Veritas · Vita</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Instagram: @mahavira_aurum</p>
-  </section>
-</main>
-
-<footer>
-  © 2024 Mahavira Aurum
-</footer>
-
-</body>
+<body><nav>
+  <a href="#about">About</a>
+  <a href="#visi">Visi & Misi</a>
+  <a href="#members">Members</a>
+  <a href="#news">Informasi</a>
+</nav><header>
+  <img src="logo.png" alt="Mahavira Aurum Logo" />
+  <h1>MAHAVIRA AURUM</h1>
+  <p class="slogan">"Valor Virtus Veritas Vita"</p>
+</header><section id="about">
+  <h2>About Us</h2>
+  <div class="card">
+    Mahavira Aurum adalah angkatan yang menjunjung nilai keberanian, kebajikan,
+    kebenaran, dan kehidupan sebagai landasan kebersamaan dan prestasi.
+  </div>
+</section><section id="visi">
+  <h2>Visi & Misi</h2>
+  <div class="card">
+    <strong>Visi</strong><br />
+    Menjadi angkatan unggul, solid, dan bermartabat.
+  </div>
+  <div class="card">
+    <strong>Misi</strong>
+    <ul>
+      <li>Membangun solidaritas</li>
+      <li>Mengembangkan potensi anggota</li>
+      <li>Menjunjung integritas</li>
+    </ul>
+  </div>
+</section><section id="members">
+  <h2>Our Members</h2>
+  <div class="members">
+    <div class="member">Member 1</div>
+    <div class="member">Member 2</div>
+    <div class="member">Member 3</div>
+    <div class="member">Member 4</div>
+  </div>
+</section><section id="news">
+  <h2>Informasi Terbaru</h2>
+  <div class="card">Kegiatan & agenda Mahavira Aurum akan ditampilkan di sini.</div>
+</section><footer>
+  © 2025 Mahavira Aurum · Valor Virtus Veritas Vita
+</footer></body>
 </html>
