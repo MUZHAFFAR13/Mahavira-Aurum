@@ -202,17 +202,28 @@ h1 {
   </div>
 </div>
 
-<script>
-function openMember(img,name,role,bio){
-  document.getElementById('modalImg').src = img;
-  document.getElementById('modalName').innerText = name;
-  document.getElementById('modalRole').innerText = role;
-  document.getElementById('modalBio').innerText = bio;
-  document.getElementById('memberModal').style.display='flex';
-}
-function closeMember(){
-  document.getElementById('memberModal').style.display='none';
-}
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAsnC8oe7JVeiggqk2Rx6DESd2aWbZm7yI",
+    authDomain: "website-mahavira-aurum.firebaseapp.com",
+    projectId: "website-mahavira-aurum",
+    storageBucket: "website-mahavira-aurum.firebasestorage.app",
+    messagingSenderId: "686768269682",
+    appId: "1:686768269682:web:12e3f67e80a87bb5c515eb",
+    measurementId: "G-QPXR44N7SC"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>
 
 </body>
