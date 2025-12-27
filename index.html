@@ -1,168 +1,219 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahavira Aurum</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahavira Aurum</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #2c2c2c, #000 70%);
   color: #fff;
-    }
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle at top, #2b2b2b, #000);
-  animation: fadeIn 1.5s ease;
-}
-
-header {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 60%),
-    linear-gradient(to bottom, #000, #111);
-}
-
-h1 {
-  margin-top: 20px;
-  font-size: 3rem;
-  color: gold;
-  letter-spacing: 3px;
-}
-
-.slogan {
-  margin-top: 10px;
-  font-style: italic;
-  color: #ccc;
 }
 
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.8);
+  background: #000;
+  padding: 12px;
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 15px;
   z-index: 100;
 }
 
 nav a {
   color: gold;
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
+  font-weight: bold;
 }
-
-nav a:hover { color: white; }
 
 section {
   padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
-  animation: fadeUp 1s ease;
+  text-align: center;
 }
 
-section h2 {
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h1 {
   color: gold;
-  margin-bottom: 20px;
-  font-size: 2.2rem;
+  font-size: 42px;
 }
 
-.card {
-  background: #111;
-  border: 1px solid gold;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.members {
+.members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: auto;
 }
 
 .member {
   background: #111;
-  border-radius: 14px;
+  border: 1px solid gold;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.product {
+  background: #111;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid gold;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: #111;
+  border: 2px solid gold;
+  border-radius: 16px;
   padding: 20px;
+  max-width: 320px;
   text-align: center;
-  transition: 0.3s;
 }
 
-.member:hover { transform: scale(1.05); }
-
-footer {
-  background: #000;
-  text-align: center;
-  padding: 30px;
-  color: #888;
+.modal-content img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-@keyframes zoomRotate {
-  from { transform: scale(0) rotate(-180deg); opacity: 0; }
-  to { transform: scale(1) rotate(0); opacity: 1; }
+.close {
+  color: gold;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-  </style>
+</style>
 </head>
-<body><nav>
+
+<body>
+
+<nav>
   <a href="#about">About</a>
-  <a href="#visi">Visi & Misi</a>
-  <a href="#members">Members</a>
-  <a href="#news">Informasi</a>
-</nav><header>
-  <img src="logo.png" alt="Mahavira Aurum Logo" />
+  <a href="#members">Our Members</a>
+  <a href="#product">Our Product</a>
+  <a href="#donate">Open Donate</a>
+</nav>
+
+<header>
+  <img src="logo.png" alt="Logo">
   <h1>MAHAVIRA AURUM</h1>
-  <p class="slogan">"Valor Virtus Veritas Vita"</p>
-</header><section id="about">
+  <p><i>Valor Virtus Veritas Vita</i></p>
+</header>
+
+<section id="about">
   <h2>About Us</h2>
-  <div class="card">
-    Mahavira Aurum adalah angkatan yang menjunjung nilai keberanian, kebajikan,
-    kebenaran, dan kehidupan sebagai landasan kebersamaan dan prestasi.
-  </div>
-</section><section id="visi">
-  <h2>Visi & Misi</h2>
-  <div class="card">
-    <strong>Visi</strong><br />
-    Menjadi angkatan unggul, solid, dan bermartabat.
-  </div>
-  <div class="card">
-    <strong>Misi</strong>
-    <ul>
-      <li>Membangun solidaritas</li>
-      <li>Mengembangkan potensi anggota</li>
-      <li>Menjunjung integritas</li>
-    </ul>
-  </div>
-</section><section id="members">
+  <p>Mahavira Aurum adalah komunitas berlandaskan nilai kehormatan, keberanian, dan kebenaran.</p>
+</section>
+
+<section id="members">
   <h2>Our Members</h2>
-  <div class="members">
-    <div class="member">Member 1</div>
-    <div class="member">Member 2</div>
-    <div class="member">Member 3</div>
-    <div class="member">Member 4</div>
+  <div class="members-grid">
+
+    <!-- 36 MEMBER -->
+    <!-- COPY POLA INI -->
+    <!-- Ganti nama & jabatan -->
+
+    <script>
+      for(let i=1;i<=36;i++){
+        document.write(`
+          <div class="member" onclick="openMember('member${i}.jpg','Member ${i}','Anggota','Mahavira Aurum')">
+            Member ${i}
+          </div>
+        `)
+      }
+    </script>
+
   </div>
-</section><section id="news">
-  <h2>Informasi Terbaru</h2>
-  <div class="card">Kegiatan & agenda Mahavira Aurum akan ditampilkan di sini.</div>
-</section><footer>
-  © 2025 Mahavira Aurum · Valor Virtus Veritas Vita
-</footer></body>
+</section>
+
+<section id="product">
+  <h2>Our Product</h2>
+  <div class="products">
+    <div class="product">
+      <img src="product1.jpg">
+      <h3>Produk 1</h3>
+      <p>Deskripsi produk</p>
+    </div>
+    <div class="product">
+      <img src="product2.jpg">
+      <h3>Produk 2</h3>
+      <p>Deskripsi produk</p>
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <h2>Open Donate (Wakaf)</h2>
+  <p>Dukung kegiatan kami melalui wakaf dan donasi.</p>
+  <p><b>Rekening:</b><br>
+     BSI 123456789<br>
+     a.n Mahavira Aurum
+  </p>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="memberModal">
+  <div class="modal-content">
+    <img id="modalImg">
+    <h3 id="modalName"></h3>
+    <p id="modalRole"></p>
+    <p id="modalBio"></p>
+    <span class="close" onclick="closeMember()">Tutup</span>
+  </div>
+</div>
+
+<script>
+function openMember(img,name,role,bio){
+  document.getElementById('modalImg').src = img;
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalRole').innerText = role;
+  document.getElementById('modalBio').innerText = bio;
+  document.getElementById('memberModal').style.display='flex';
+}
+function closeMember(){
+  document.getElementById('memberModal').style.display='none';
+}
+</script>
+
+</body>
 </html>
-logo.png.jpg
