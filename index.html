@@ -6,225 +6,242 @@
 <title>Mahavira Aurum</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #2c2c2c, #000 70%);
-  color: #fff;
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#f4f6f8;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #000;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  z-index: 100;
+/* HEADER */
+header{
+  background:#fff;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-nav a {
-  color: gold;
-  text-decoration: none;
-  font-weight: bold;
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
-section {
-  padding: 80px 20px;
-  text-align: center;
+.logo-area img{
+  height:55px;
 }
 
-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.logo-area h1{
+  margin:0;
+  font-size:1.3rem;
+  font-weight:600;
 }
 
-header img {
-  width: 120px;
-  margin-bottom: 20px;
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#222;
+  font-weight:500;
 }
 
-h1 {
-  color: gold;
-  font-size: 42px;
+/* HERO */
+.hero{
+  background:white;
+  padding:80px 20px;
+  text-align:center;
 }
 
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-  gap: 15px;
-  max-width: 900px;
-  margin: auto;
+.hero img{
+  width:160px;
+  margin-bottom:20px;
 }
 
-.member {
-  background: #111;
-  border: 1px solid gold;
-  padding: 15px;
-  cursor: pointer;
-  border-radius: 10px;
+.hero h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: auto;
+.hero p{
+  font-size:1.1rem;
+  color:#555;
+  letter-spacing:1px;
 }
 
-.product {
-  background: #111;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid gold;
+/* SECTION */
+.section{
+  padding:60px 40px;
 }
 
-.product img {
-  width: 100%;
-  border-radius: 8px;
+.section h2{
+  text-align:center;
+  margin-bottom:10px;
 }
 
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 200;
+.section .subtitle{
+  text-align:center;
+  color:#666;
+  margin-bottom:40px;
 }
 
-.modal-content {
-  background: #111;
-  border: 2px solid gold;
-  border-radius: 16px;
-  padding: 20px;
-  max-width: 320px;
-  text-align: center;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
 }
 
-.modal-content img {
-  width: 120px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+.card{
+  background:white;
+  border-radius:14px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
-.close {
-  color: gold;
-  cursor: pointer;
-  margin-top: 10px;
-  display: inline-block;
+/* DONATE */
+.donate{
+  background:#111;
+  color:white;
+  border-radius:24px;
+  padding:60px 30px;
+  text-align:center;
+}
+
+.progress{
+  background:#444;
+  height:12px;
+  border-radius:6px;
+  margin:20px auto;
+  max-width:400px;
+}
+
+.progress div{
+  width:60%;
+  height:100%;
+  background:gold;
+  border-radius:6px;
+}
+
+.button{
+  background:gold;
+  padding:12px 28px;
+  border-radius:8px;
+  color:black;
+  text-decoration:none;
+  font-weight:600;
+  display:inline-block;
+  margin-top:10px;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#members">Our Members</a>
-  <a href="#product">Our Product</a>
-  <a href="#donate">Open Donate</a>
-</nav>
-
 <header>
-  <img src="logo.png" alt="Logo">
-  <h1>MAHAVIRA AURUM</h1>
-  <p><i>Valor Virtus Veritas Vita</i></p>
+  <div class="logo-area">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/..." alt="Logo Mahavira Aurum">
+    <h1>Mahavira Aurum</h1>
+  </div>
+
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="#">Our Members</a>
+    <a href="#">Our Product</a>
+    <a href="#">Open Donate</a>
+    <a href="#">Kontak</a>
+  </nav>
 </header>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p>Mahavira Aurum adalah komunitas berlandaskan nilai kehormatan, keberanian, dan kebenaran.</p>
+<!-- HERO -->
+<section class="hero">
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/..." alt="Logo Besar">
+  <h2>Mahavira Aurum</h2>
+  <p>VALOR · VIRTUS · VERITAS · VITA</p>
 </section>
 
-<section id="members">
+<!-- OUR MEMBERS -->
+<section class="section">
   <h2>Our Members</h2>
-  <div class="members-grid">
+  <p class="subtitle">36 Ksatria dalam satu angkatan</p>
 
-    <!-- 36 MEMBER -->
-    <!-- COPY POLA INI -->
-    <!-- Ganti nama & jabatan -->
-
-    <script>
-      for(let i=1;i<=36;i++){
-        document.write(`
-          <div class="member" onclick="openMember('member${i}.jpg','Member ${i}','Anggota','Mahavira Aurum')">
-            Member ${i}
-          </div>
-        `)
-      }
-    </script>
-
+  <div class="grid">
+    <!-- 36 member (contoh placeholder) -->
+    <!-- Kamu bisa ganti Nama Member 1 dst dengan nama asli -->
+    <div class="card">Member 1</div>
+    <div class="card">Member 2</div>
+    <div class="card">Member 3</div>
+    <div class="card">Member 4</div>
+    <div class="card">Member 5</div>
+    <div class="card">Member 6</div>
+    <div class="card">Member 7</div>
+    <div class="card">Member 8</div>
+    <div class="card">Member 9</div>
+    <div class="card">Member 10</div>
+    <div class="card">Member 11</div>
+    <div class="card">Member 12</div>
+    <div class="card">Member 13</div>
+    <div class="card">Member 14</div>
+    <div class="card">Member 15</div>
+    <div class="card">Member 16</div>
+    <div class="card">Member 17</div>
+    <div class="card">Member 18</div>
+    <div class="card">Member 19</div>
+    <div class="card">Member 20</div>
+    <div class="card">Member 21</div>
+    <div class="card">Member 22</div>
+    <div class="card">Member 23</div>
+    <div class="card">Member 24</div>
+    <div class="card">Member 25</div>
+    <div class="card">Member 26</div>
+    <div class="card">Member 27</div>
+    <div class="card">Member 28</div>
+    <div class="card">Member 29</div>
+    <div class="card">Member 30</div>
+    <div class="card">Member 31</div>
+    <div class="card">Member 32</div>
+    <div class="card">Member 33</div>
+    <div class="card">Member 34</div>
+    <div class="card">Member 35</div>
+    <div class="card">Member 36</div>
   </div>
 </section>
 
-<section id="product">
+<!-- OUR PRODUCT -->
+<section class="section">
   <h2>Our Product</h2>
-  <div class="products">
-    <div class="product">
-      <img src="product1.jpg">
-      <h3>Produk 1</h3>
-      <p>Deskripsi produk</p>
-    </div>
-    <div class="product">
-      <img src="product2.jpg">
-      <h3>Produk 2</h3>
-      <p>Deskripsi produk</p>
-    </div>
+  <p class="subtitle">Karya & merchandise Mahavira Aurum</p>
+
+  <div class="grid">
+    <div class="card">Merchandise Angkatan</div>
+    <div class="card">Produk Kreatif</div>
   </div>
 </section>
 
-<section id="donate">
-  <h2>Open Donate (Wakaf)</h2>
-  <p>Dukung kegiatan kami melalui wakaf dan donasi.</p>
-  <p><b>Rekening:</b><br>
-     BSI 123456789<br>
-     a.n Mahavira Aurum
-  </p>
+<!-- OPEN DONATE -->
+<section class="section">
+  <div class="donate">
+    <h2>Open Donate</h2>
+    <p>Dukung kegiatan & solidaritas Mahavira Aurum</p>
+    <div class="progress"><div></div></div>
+    <p>Rp 30.000.000 / Rp 50.000.000</p>
+    <a href="#" class="button">Donasi Sekarang</a>
+  </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="memberModal">
-  <div class="modal-content">
-    <img id="modalImg">
-    <h3 id="modalName"></h3>
-    <p id="modalRole"></p>
-    <p id="modalBio"></p>
-    <span class="close" onclick="closeMember()">Tutup</span>
-  </div>
-</div>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAsnC8oe7JVeiggqk2Rx6DESd2aWbZm7yI",
-    authDomain: "website-mahavira-aurum.firebaseapp.com",
-    projectId: "website-mahavira-aurum",
-    storageBucket: "website-mahavira-aurum.firebasestorage.app",
-    messagingSenderId: "686768269682",
-    appId: "1:686768269682:web:12e3f67e80a87bb5c515eb",
-    measurementId: "G-QPXR44N7SC"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+<footer>
+© 2025 Mahavira Aurum — Valor · Virtus · Veritas · Vita
+</footer>
 
 </body>
 </html>
