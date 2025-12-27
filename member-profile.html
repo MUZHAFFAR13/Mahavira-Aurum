@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Member | Mahavira Aurum</title>  <!-- Firebase -->  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "ISI_API_KEY",
+      authDomain: "ISI_AUTH_DOMAIN",
+      projectId: "ISI_PROJECT_ID",
+      storageBucket: "ISI_STORAGE_BUCKET",
+      messagingSenderId: "ISI_SENDER_ID",
+      appId: "ISI_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    window.login = async function () {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      await signInWithEmailAndPassword(auth, email, password);
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('profileBox').style.display = 'block';
+    }
+
+    window.register = async function () {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert('Akun berhasil dibuat, silakan login');
+    }
+
+    window.saveProfile = async function () {
+      const user = auth.currentUser;
+      const fotoFile = foto.files[0];
+      const fotoRef = ref(storage, 'members/' + user.uid);
+      await uploadBytes(fotoRef, fotoFile);
+      const fotoURL = await getDownloadURL(fotoRef);
+
+      await setDoc(doc(db, 'members', user.uid), {
+        nama: nama.value,
+        ttl: ttl.value,
+        asal: asal.value,
+        moto: moto.value,
+        citacita: citacita.value,
+        fotoUrl: fotoURL
+      });
+
+      alert('Profil berhasil disimpan');
+    }
+  </script>  <style>
+    body {
+      background: radial-gradient(circle at top, #2c2c2c, #000 70%);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 { color: gold; text-align: center; }
+
+    .box {
+      max-width: 400px;
+      margin: auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 16px;
+      border: 2px solid gold;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      background: gold;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style></head>
+<body><h1>Profil Member Mahavira Aurum</h1><div class="box" id="loginBox">
+  <h3>Login / Daftar</h3>
+  <input id="emailInput" type="email" placeholder="Email">
+  <input id="passwordInput" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <button onclick="register()">Daftar</button>
+</div><div class="box" id="profileBox" style="display:none;">
+  <h3>Isi Profil</h3>
+  <input id="nama" placeholder="Nama Lengkap">
+  <input id="ttl" placeholder="Tempat, Tanggal Lahir">
+  <input id="asal" placeholder="Asal Daerah">
+  <textarea id="moto" placeholder="Moto Hidup"></textarea>
+  <textarea id="citacita" placeholder="Cita-cita"></textarea>
+  <input id="foto" type="file">
+  <button onclick="saveProfile()">Simpan Profil</button>
+</div></body>
+</html>
