@@ -1,247 +1,112 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahavira Aurum</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahavira Aurum</title>
 
-<style>
-body{
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#f4f6f8;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      text-align: center;
+    }
 
-/* HEADER */
-header{
-  background:#fff;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
 
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
+    nav .brand {
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-.logo-area img{
-  height:55px;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+    }
 
-.logo-area h1{
-  margin:0;
-  font-size:1.3rem;
-  font-weight:600;
-}
+    nav ul li {
+      font-size: 14px;
+    }
 
-nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:#222;
-  font-weight:500;
-}
+    /* HERO */
+    .hero {
+      padding: 80px 20px 60px;
+      background: white;
+    }
 
-/* HERO */
-.hero{
-  background:white;
-  padding:80px 20px;
-  text-align:center;
-}
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
-.hero img{
-  width:160px;
-  margin-bottom:20px;
-}
+    .hero p {
+      letter-spacing: 2px;
+      color: #666;
+    }
 
-.hero h2{
-  font-size:2.2rem;
-  margin-bottom:10px;
-}
+    /* SECTION */
+    section {
+      padding: 60px 20px;
+    }
 
-.hero p{
-  font-size:1.1rem;
-  color:#555;
-  letter-spacing:1px;
-}
+    .members {
+      max-width: 600px;
+      margin: auto;
+    }
 
-/* SECTION */
-.section{
-  padding:60px 40px;
-}
-
-.section h2{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.section .subtitle{
-  text-align:center;
-  color:#666;
-  margin-bottom:40px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:white;
-  border-radius:14px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
-}
-
-/* DONATE */
-.donate{
-  background:#111;
-  color:white;
-  border-radius:24px;
-  padding:60px 30px;
-  text-align:center;
-}
-
-.progress{
-  background:#444;
-  height:12px;
-  border-radius:6px;
-  margin:20px auto;
-  max-width:400px;
-}
-
-.progress div{
-  width:60%;
-  height:100%;
-  background:gold;
-  border-radius:6px;
-}
-
-.button{
-  background:gold;
-  padding:12px 28px;
-  border-radius:8px;
-  color:black;
-  text-decoration:none;
-  font-weight:600;
-  display:inline-block;
-  margin-top:10px;
-}
-
-/* FOOTER */
-footer{
-  background:#000;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-</style>
+    .member-card {
+      background: white;
+      margin: 12px 0;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo-area">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/..." alt="Logo Mahavira Aurum">
-    <h1>Mahavira Aurum</h1>
-  </div>
-
+  <!-- NAVBAR -->
   <nav>
-    <a href="#">Beranda</a>
-    <a href="#">Our Members</a>
-    <a href="#">Our Product</a>
-    <a href="#">Open Donate</a>
-    <a href="#">Kontak</a>
+    <div class="brand">Mahavira Aurum</div>
+    <ul>
+      <li>Beranda</li>
+      <li>Our Members</li>
+      <li>Our Product</li>
+      <li>Open Donate</li>
+      <li>Kontak</li>
+    </ul>
   </nav>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/..." alt="Logo Besar">
-  <h2>Mahavira Aurum</h2>
-  <p>VALOR · VIRTUS · VERITAS · VITA</p>
-</section>
-
-<!-- OUR MEMBERS -->
-<section class="section">
-  <h2>Our Members</h2>
-  <p class="subtitle">36 Ksatria dalam satu angkatan</p>
-
-  <div class="grid">
-    <!-- 36 member (contoh placeholder) -->
-    <!-- Kamu bisa ganti Nama Member 1 dst dengan nama asli -->
-    <div class="card">Member 1</div>
-    <div class="card">Member 2</div>
-    <div class="card">Member 3</div>
-    <div class="card">Member 4</div>
-    <div class="card">Member 5</div>
-    <div class="card">Member 6</div>
-    <div class="card">Member 7</div>
-    <div class="card">Member 8</div>
-    <div class="card">Member 9</div>
-    <div class="card">Member 10</div>
-    <div class="card">Member 11</div>
-    <div class="card">Member 12</div>
-    <div class="card">Member 13</div>
-    <div class="card">Member 14</div>
-    <div class="card">Member 15</div>
-    <div class="card">Member 16</div>
-    <div class="card">Member 17</div>
-    <div class="card">Member 18</div>
-    <div class="card">Member 19</div>
-    <div class="card">Member 20</div>
-    <div class="card">Member 21</div>
-    <div class="card">Member 22</div>
-    <div class="card">Member 23</div>
-    <div class="card">Member 24</div>
-    <div class="card">Member 25</div>
-    <div class="card">Member 26</div>
-    <div class="card">Member 27</div>
-    <div class="card">Member 28</div>
-    <div class="card">Member 29</div>
-    <div class="card">Member 30</div>
-    <div class="card">Member 31</div>
-    <div class="card">Member 32</div>
-    <div class="card">Member 33</div>
-    <div class="card">Member 34</div>
-    <div class="card">Member 35</div>
-    <div class="card">Member 36</div>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Mahavira Aurum</h1>
+    <p>VALOR · VIRTUS · VERITAS · VITA</p>
   </div>
-</section>
 
-<!-- OUR PRODUCT -->
-<section class="section">
-  <h2>Our Product</h2>
-  <p class="subtitle">Karya & merchandise Mahavira Aurum</p>
+  <!-- MEMBERS -->
+  <section>
+    <h2>Our Members</h2>
+    <p>36 Ksatria dalam satu angkatan</p>
 
-  <div class="grid">
-    <div class="card">Merchandise Angkatan</div>
-    <div class="card">Produk Kreatif</div>
-  </div>
-</section>
-
-<!-- OPEN DONATE -->
-<section class="section">
-  <div class="donate">
-    <h2>Open Donate</h2>
-    <p>Dukung kegiatan & solidaritas Mahavira Aurum</p>
-    <div class="progress"><div></div></div>
-    <p>Rp 30.000.000 / Rp 50.000.000</p>
-    <a href="#" class="button">Donasi Sekarang</a>
-  </div>
-</section>
-
-<footer>
-© 2025 Mahavira Aurum — Valor · Virtus · Veritas · Vita
-</footer>
+    <div class="members">
+      <div class="member-card">Member 1</div>
+      <div class="member-card">Member 2</div>
+      <div class="member-card">Member 3</div>
+    </div>
+  </section>
 
 </body>
 </html>
