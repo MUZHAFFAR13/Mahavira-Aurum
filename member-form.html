@@ -1,69 +1,15 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Form Profil Member</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      background: #111;
-      color: gold;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    form {
-      max-width: 400px;
-      margin: auto;
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    input, textarea, button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      background: gold;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-
-<h2>Form Profil Member</h2>
-
-<form id="memberForm">
-  <input type="text" id="name" placeholder="Nama Lengkap" required>
-  <input type="text" id="ttl" placeholder="Tempat, Tanggal Lahir" required>
-  <input type="text" id="asal" placeholder="Asal Daerah" required>
-  <input type="text" id="motto" placeholder="Moto Hidup" required>
-  <input type="text" id="cita" placeholder="Cita-cita" required>
-  <input type="url" id="photo" placeholder="Link Foto (Google Drive / Hosting)" required>
-  <button type="submit">Simpan Profil</button>
-</form>
-
-<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
   const firebaseConfig = {
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAsnC8oe7JVeiggqk2Rx6DESd2aWbZm7yI",
-  authDomain: "website-mahavira-aurum.firebaseapp.com",
-  databaseURL: "https://website-mahavira-aurum-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "website-mahavira-aurum",
-  storageBucket: "website-mahavira-aurum.firebasestorage.app",
-  messagingSenderId: "686768269682",
-  appId: "1:686768269682:web:9697ee0f30e7e7d3c515eb",
-  measurementId: "G-PE8S3PJ8TD"
-};
+    apiKey: "AIzaSyAsnC8oe7JVeiggqk2Rx6DESd2aWbZm7yI",
+    authDomain: "website-mahavira-aurum.firebaseapp.com",
+    databaseURL: "https://website-mahavira-aurum-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "website-mahavira-aurum",
+    storageBucket: "website-mahavira-aurum.appspot.com",
+    messagingSenderId: "686768269682",
+    appId: "1:686768269682:web:9697ee0f30e7e7d3c515eb"
   };
 
   firebase.initializeApp(firebaseConfig);
@@ -72,19 +18,22 @@ const firebaseConfig = {
   document.getElementById("memberForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    db.ref("members").push({
-      name: name.value,
-      ttl: ttl.value,
-      asal: asal.value,
-      motto: motto.value,
-      cita: cita.value,
-      photo: photo.value
-    });
+    const data = {
+      name: document.getElementById("name").value,
+      ttl: document.getElementById("ttl").value,
+      asal: document.getElementById("asal").value,
+      motto: document.getElementById("motto").value,
+      cita: document.getElementById("cita").value,
+      photo: document.getElementById("photo").value
+    };
 
-    alert("Profil berhasil disimpan!");
-    this.reset();
+    db.ref("members").push(data)
+      .then(() => {
+        alert("Profil berhasil disimpan");
+        this.reset();
+      })
+      .catch((error) => {
+        alert("Error: " + error.message);
+      });
   });
 </script>
-
-</body>
-</html>
