@@ -1,112 +1,219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahavira Aurum</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahavira Aurum</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #2c2c2c, #000 70%);
+  color: #fff;
+}
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 20px;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  z-index: 100;
+}
 
-    nav .brand {
-      font-weight: bold;
-      font-size: 18px;
-    }
+nav a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 16px;
-      padding: 0;
-      margin: 0;
-    }
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    nav ul li {
-      font-size: 14px;
-    }
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    /* HERO */
-    .hero {
-      padding: 80px 20px 60px;
-      background: white;
-    }
+header img {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+h1 {
+  color: gold;
+  font-size: 42px;
+}
 
-    .hero p {
-      letter-spacing: 2px;
-      color: #666;
-    }
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    /* SECTION */
-    section {
-      padding: 60px 20px;
-    }
+.member {
+  background: #111;
+  border: 1px solid gold;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
-    .members {
-      max-width: 600px;
-      margin: auto;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    .member-card {
-      background: white;
-      margin: 12px 0;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
-  </style>
+.product {
+  background: #111;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid gold;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: #111;
+  border: 2px solid gold;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.close {
+  color: gold;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="brand">Mahavira Aurum</div>
-    <ul>
-      <li>Beranda</li>
-      <li>Our Members</li>
-      <li>Our Product</li>
-      <li>Open Donate</li>
-      <li>Kontak</li>
-    </ul>
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#members">Our Members</a>
+  <a href="#product">Our Product</a>
+  <a href="#donate">Open Donate</a>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Mahavira Aurum</h1>
-    <p>VALOR · VIRTUS · VERITAS · VITA</p>
+<header>
+  <img src="logo.png" alt="Logo">
+  <h1>MAHAVIRA AURUM</h1>
+  <p><i>Valor Virtus Veritas Vita</i></p>
+</header>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>Mahavira Aurum adalah komunitas berlandaskan nilai kehormatan, keberanian, dan kebenaran.</p>
+</section>
+
+<section id="members">
+  <h2>Our Members</h2>
+  <div class="members-grid">
+
+    <!-- 36 MEMBER -->
+    <!-- COPY POLA INI -->
+    <!-- Ganti nama & jabatan -->
+
+    <script>
+      for(let i=1;i<=36;i++){
+        document.write(`
+          <div class="member" onclick="openMember('member${i}.jpg','Member ${i}','Anggota','Mahavira Aurum')">
+            Member ${i}
+          </div>
+        `)
+      }
+    </script>
+
   </div>
+</section>
 
-  <!-- MEMBERS -->
-  <section>
-    <h2>Our Members</h2>
-    <p>36 Ksatria dalam satu angkatan</p>
-
-    <div class="members">
-      <div class="member-card">Member 1</div>
-      <div class="member-card">Member 2</div>
-      <div class="member-card">Member 3</div>
+<section id="product">
+  <h2>Our Product</h2>
+  <div class="products">
+    <div class="product">
+      <img src="product1.jpg">
+      <h3>Produk 1</h3>
+      <p>Deskripsi produk</p>
     </div>
-  </section>
+    <div class="product">
+      <img src="product2.jpg">
+      <h3>Produk 2</h3>
+      <p>Deskripsi produk</p>
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <h2>Open Donate (Wakaf)</h2>
+  <p>Dukung kegiatan kami melalui wakaf dan donasi.</p>
+  <p><b>Rekening:</b><br>
+     BSI 123456789<br>
+     a.n Mahavira Aurum
+  </p>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="memberModal">
+  <div class="modal-content">
+    <img id="modalImg">
+    <h3 id="modalName"></h3>
+    <p id="modalRole"></p>
+    <p id="modalBio"></p>
+    <span class="close" onclick="closeMember()">Tutup</span>
+  </div>
+</div>
+
+<script>
+function openMember(img,name,role,bio){
+  document.getElementById('modalImg').src = img;
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalRole').innerText = role;
+  document.getElementById('modalBio').innerText = bio;
+  document.getElementById('memberModal').style.display='flex';
+}
+function closeMember(){
+  document.getElementById('memberModal').style.display='none';
+}
+</script>
 
 </body>
 </html>
