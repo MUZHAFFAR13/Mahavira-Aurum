@@ -3,104 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <title>Form Profil Member</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       background: #111;
+      color: gold;
       font-family: Arial, sans-serif;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      padding: 20px;
     }
-    .card {
-      background: #1e1e1e;
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #1c1c1c;
       padding: 20px;
       border-radius: 10px;
-      width: 100%;
-      max-width: 400px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
     }
     input, button {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 6px;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
       border: none;
     }
     button {
-      background: #ffd000;
+      background: gold;
       font-weight: bold;
       cursor: pointer;
     }
   </style>
-
-  <!-- FIREBASE v8 (STABIL & SIMPLE) -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
 
-  <div class="card">
-    <h2>Form Profil Member</h2>
+<h2 align="center">Form Profil Member</h2>
 
-    <form id="memberForm">
-      <input type="text" id="name" placeholder="Nama Lengkap" required>
-      <input type="text" id="ttl" placeholder="TTL" required>
-      <input type="text" id="asal" placeholder="Asal Daerah" required>
-      <input type="text" id="motto" placeholder="Motto" required>
-      <input type="text" id="cita" placeholder="Cita-cita" required>
-      <input type="url" id="photo" placeholder="Link Foto (Google Drive)" required>
+<form id="memberForm">
+  <input id="name" placeholder="Nama Lengkap" required>
+  <input id="ttl" placeholder="Tempat, Tanggal Lahir" required>
+  <input id="asal" placeholder="Asal Daerah" required>
+  <input id="motto" placeholder="Motto Hidup" required>
+  <input id="cita" placeholder="Cita-cita" required>
+  <input id="photo" placeholder="Link Foto" required>
+  <button type="submit">Simpan Profil</button>
+</form>
 
-      <button type="submit">Simpan Profil</button>
-    </form>
-  </div>
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAsnC8oe7JVeiggqk2Rx6DESd2aWbZm7yI",
+  authDomain: "website-mahavira-aurum.firebaseapp.com",
+  databaseURL: "https://website-mahavira-aurum-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "website-mahavira-aurum",
+  storageBucket: "website-mahavira-aurum.firebasestorage.app",
+  messagingSenderId: "686768269682",
+  appId: "1:686768269682:web:9697ee0f30e7e7d3c515eb",
+  measurementId: "G-PE8S3PJ8TD"
+};
 
-      var firebaseConfig = {
-        apiKey: "AIzaSyAsnC8oe7JVeiggq2Rx6DE5d2awbZm7yl",
-        authDomain: "website-mahavira-aurum.firebaseapp.com",
-        databaseURL: "https://website-mahavira-aurum-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "website-mahavira-aurum",
-        storageBucket: "website-mahavira-aurum.appspot.com",
-        messagingSenderId: "686768296982",
-        appId: "1:686768296982:web:9697ee0f30e7e73dc515eb"
-      };
 
-      firebase.initializeApp(firebaseConfig);
-      var database = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-      document.getElementById("memberForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+  document.getElementById("memberForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        var data = {
-          name: document.getElementById("name").value,
-          ttl: document.getElementById("ttl").value,
-          asal: document.getElementById("asal").value,
-          motto: document.getElementById("motto").value,
-          cita: document.getElementById("cita").value,
-          photo: document.getElementById("photo").value
-        };
+    const data = {
+      name: name.value,
+      ttl: ttl.value,
+      asal: asal.value,
+      motto: motto.value,
+      cita: cita.value,
+      photo: photo.value
+    };
 
-        database.ref("members").push(data)
-          .then(function () {
-            alert("Profil berhasil disimpan!");
-            document.getElementById("memberForm").reset();
-          })
-          .catch(function (error) {
-            alert("Error: " + error.message);
-          });
-      });
-
-    });
-  </script>
+    db.ref("members").push(data)
+      .then(() => {
+        alert("Profil berhasil disimpan");
+        this.reset();
+      })
+      .catch(err => alert(err.message));
+  });
+</script>
 
 </body>
 </html>
