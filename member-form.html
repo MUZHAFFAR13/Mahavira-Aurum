@@ -32,10 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
     db.ref("members").push(data)
       .then(() => {
         alert("Profil berhasil disimpan");
-        this.reset();
+        document.getElementById("memberForm").reset();
       })
       .catch((error) => {
         alert("Error: " + error.message);
+        console.error(error);
       });
   });
 
